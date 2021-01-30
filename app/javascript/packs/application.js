@@ -12,6 +12,8 @@ import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
 require("stylesheets/application.scss")
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+import "@fortawesome/fontawesome-free/css/all"
+
+//Rails.start()
+//Turbolinks.start()
+//ActiveStorage.start()
