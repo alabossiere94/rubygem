@@ -11,6 +11,7 @@ import "channels"
 import "bootstrap"
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
+// commenting out because won't work with heroku
 // require("stylesheets/application.scss")
 
 import "@fortawesome/fontawesome-free/css/all"
