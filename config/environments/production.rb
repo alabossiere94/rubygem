@@ -6,6 +6,15 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'email-smtp.us-east-2.amazonaws.com',
+    user_name: 'AKIAXXYZPNP37SWXTOOU',
+    password: 'BJdwhq7rHk3BMSlnVnm+y44dxSnthLkC+TVIDVPsDqIA',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  
   Rails.application.config.middleware.use ExceptionNotification::Rack,
     email: {
       deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
@@ -13,15 +22,6 @@ Rails.application.configure do
       sender_address: %{"rubyonrailscourse2021 error" <errorSupport@rubyonrailscourse2021.herokuapp.com>},
       exception_recipients: %w{alabossi@gmail.com}
     }
-  
-  #config.action_mailer.smtp_settings = {
-  #port: 587,
-  #address: 'email-smtp.us-east-2.amazonaws.com',
-  #user_name: 'AKIAXXYZPNP3WZWUS3VZ',
-  #password: 'BNmkFn6o/4jfKeqhSfW9p3ff7cfx9+1pnyNzkj+eKbZK',
-  #authentication: :plain,
-  #enable_starttls_auto: true
-#}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
