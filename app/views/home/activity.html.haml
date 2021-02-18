@@ -1,10 +1,15 @@
+- content_for :title do
+  Rubygem 
+  \| 
+  Activity
+
 %h3
   .text-center
     Activity
     .badge.badge-info
       = @activities.count
 %p
-%u1.list-group
+%ul.list-group
   - @activities.each do |activity|
     %li.list-group-item
       = activity.id
