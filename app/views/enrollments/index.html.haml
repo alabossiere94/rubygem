@@ -31,7 +31,7 @@
           %td= enrollment.rating
           %td= enrollment.review
           %td 
-            - if enrollment.price = 0
+            - if enrollment.price == 0
               Free
             - else
               = number_to_currency(enrollment.price)

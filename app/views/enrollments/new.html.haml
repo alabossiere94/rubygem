@@ -13,10 +13,10 @@
         Buy course
   .card-body
     = form_tag course_enrollments_path(@course) do
-      - if @enrollment.price = 0
+      - if @course.price == 0
         = submit_tag "Free", class: 'btn btn-lg btn-success'
       - else
-        = submit_tag "Pay" + ' ' + number_to_currency("#{@course.price}"), class: 'btn btn-lg btn-success'
+        = submit_tag "Pay " + number_to_currency("#{@course.price}"), class: 'btn btn-lg btn-success'
   .card-footer
     = link_to 'Back', course_path(@course)
     
