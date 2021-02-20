@@ -60,16 +60,16 @@ class EnrollmentsController < ApplicationController
 
   private
   def set_course
-  @course = Course.friendly.find(params[:course_id])
+    @course = Course.friendly.find(params[:course_id])
   end
   
-    # Use callbacks to share common setup or constraints between actions.
-    def set_enrollment
-      @enrollment = Enrollment.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_enrollment
+    @enrollment = Enrollment.friendly.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def enrollment_params
-      params.require(:enrollment).permit(:rating, :review)
-    end
+  # Only allow a list of trusted parameters through.
+  def enrollment_params
+    params.require(:enrollment).permit(:rating, :review)
+  end
 end
