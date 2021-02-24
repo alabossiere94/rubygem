@@ -46,9 +46,13 @@
               = link_to purchased_courses_path, class: "dropdown-item" do
                 .fa.fa-graduation-cap
                 Enrolled Courses
+                .badge.badge-danger
+                  = current_user.enrollments.count
               = link_to pending_review_courses_path, class: "dropdown-item" do
                 .fa.fa-star
                 Pending Review
+                .badge.badge-danger
+                  = current_user.enrollments.pending_review.count
         
         - if current_user.has_role?(:teacher)
           %li.nav-item.dropdown
@@ -63,9 +67,13 @@
               = link_to created_courses_path, class: "dropdown-item" do
                 .fa.fa-graduation-cap
                 My Courses
+                .badge.badge-danger
+                  = current_user.courses.count
               = link_to my_students_enrollments_path, class: "dropdown-item" do
                 .fa.fa-user
                 My students
+                .badge.badge-danger
+                  = Enrollment.joins(:course).where(courses: {user: current_user}).count
         
         - if current_user.has_role?(:admin)
           %li.nav-item.dropdown
@@ -76,9 +84,13 @@
               = link_to users_path, class: "dropdown-item" do
                 .fa.fa-users
                 Users
+                .badge.badge-danger
+                  = User.count
               = link_to enrollments_path, class: "dropdown-item" do
                 .fa.fa-lock-open
                 Enrollments
+                .badge.badge-danger
+                  = Enrollment.count
               = link_to activity_path, class: "dropdown-item" do
                 .fa.fa-bell
                 Activity   
@@ -99,6 +111,9 @@
               .fa.fa-sign-out-alt
               %b Sign out
     - else
-      %ul.navbar-nav
-        %li.nav-item= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
-        %li.nav-item= link_to 'Log In', new_user_session_path, class: 'nav-link'
+      %ul.navbar-nav.mr-auto
+      %ul.navbar-nav.mr-right
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(new_user_registration_path)}"}
+          = link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(new_user_session_path)}"}
+          = link_to 'Log In', new_user_session_path, class: 'nav-link'
