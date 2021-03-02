@@ -19,6 +19,6 @@ class Lesson < ApplicationRecord
   
   def viewed(user)
     self.user_lessons.where(user: user).present?
-    #self.user_lessons.where(user_id: [user_id], lesson_id: [self_id]).empty?
+    #self.user_lessons.where(user_id: [user_id], lesson_id: [self_id]).present?
   end
 end
