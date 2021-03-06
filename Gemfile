@@ -30,6 +30,8 @@ group :test do
 end
 
 gem "haml-rails", "~> 2.0"
+gem 'bootstrap'
+gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'simple_form'
 gem 'faker'
@@ -39,7 +41,8 @@ gem 'ransack'
 gem 'public_activity'
 gem "rolify"
 gem "pundit"
-gem 'exception_notification'
+gem 'exception_notification', group: :production
 gem 'pagy'
 gem "chartkick"
 gem 'groupdate'
+gem 'rails-erd', group: :development #sudo apt-get install graphviz; bundle exec erd
