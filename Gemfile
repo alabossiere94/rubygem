@@ -30,8 +30,8 @@ group :test do
 end
 
 gem "haml-rails", "~> 2.0"
-gem 'bootstrap'
-gem 'jquery-rails'
+#gem 'bootstrap'
+#gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'simple_form'
 gem 'faker'
