@@ -121,7 +121,7 @@ class CoursesController < ApplicationController
         format.json { head :no_content }
       end
     else
-      redirect_to @course, alert: "Course has enrollments. Course can not be destroyed" 
+      redirect_to @course, alert: "Course has enrollments. Course can not be destroyed." 
     end
   end
 
