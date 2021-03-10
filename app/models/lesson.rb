@@ -14,7 +14,7 @@ class Lesson < ApplicationRecord
     tracked owner: Proc.new{ |controller, model| controller.current_user }
     
   include RankedModel
-  ranks :row_order, with_same: :course_id
+  ranks :row_order, :with_same => :course_id
     
   def to_s
     title
@@ -27,7 +27,7 @@ class Lesson < ApplicationRecord
   def next
     course.lessons.where("row_order > ?", row_order).order(:row_order).first
   end
-  
+
   def viewed(user)
     self.user_lessons.where(user: user).present?
     #self.user_lessons.where(user_id: [user_id], lesson_id: [self_id]).present?

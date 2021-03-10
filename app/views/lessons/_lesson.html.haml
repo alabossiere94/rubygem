@@ -7,11 +7,13 @@
       .text-danger.far.fa-check-square
       /NOT VIEWED
 
-    = link_to lesson.title, course_lesson_path(@course, lesson)
-  - if policy(lesson).show?
-    .card-body
-      = lesson.content
-
+    = link_to course_lesson_path(@course, lesson) do
+      %b
+        #{lesson.row_order_rank + 1}.
+      = lesson.title
+  /- if policy(lesson).show?
+  .card-body
+    = lesson.content
   - if policy(lesson).edit?
     .card-footer
       = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
