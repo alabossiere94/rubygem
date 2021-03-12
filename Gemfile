@@ -21,6 +21,8 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem "spring-watcher-listen"
+  gem "standard", group: :development
 end
 
 group :test do
@@ -47,3 +49,4 @@ gem "chartkick"
 gem 'groupdate'
 gem 'rails-erd', group: :development #sudo apt-get install graphviz; bundle exec erd
 gem 'ranked-model'
+gem "aws-sdk-s3", require: false
