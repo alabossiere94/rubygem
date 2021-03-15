@@ -33,20 +33,21 @@ end
 
 gem "haml-rails", "~> 2.0"
 #gem 'bootstrap'
-#gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.15.1'
+#gem 'jquery-rails' #for bootstrap to work
+gem 'font-awesome-sass', '~> 5.15.1' #add icons for styling
 gem 'simple_form'
-gem 'faker'
-gem 'devise'
-gem 'friendly_id'
-gem 'ransack'
-gem 'public_activity'
-gem "rolify"
-gem "pundit"
-gem 'exception_notification', group: :production
-gem 'pagy'
-gem "chartkick"
-gem 'groupdate'
+gem 'faker' #fake data for seeds.rb
+gem 'devise' #authentication as a User
+gem 'friendly_id' 
+gem 'ransack' #filter and sort data
+gem 'public_activity' #see all activity in the app
+gem "rolify" #give users roles (admin, teacher, student)
+gem "pundit" #authorization (different roles have different accesses)
+gem 'exception_notification', group: :production #notify if errors in production
+gem 'pagy' #pagination
+gem "chartkick" #charts
+gem 'groupdate' #group records by day/week/year
 gem 'rails-erd', group: :development #sudo apt-get install graphviz; bundle exec erd
-gem 'ranked-model'
-gem "aws-sdk-s3", require: false
+gem 'ranked-model' #give serial/index numbers to items in a list
+gem "aws-sdk-s3", require: false #save images and files in production
+gem 'active_storage_validations' #validate image and file uploads
