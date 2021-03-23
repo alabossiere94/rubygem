@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'activity', to: 'home#activity'
   get 'analytics', to: 'home#analytics'
+  #get 'privacy_policy', to: 'home#privacy_policy'
   
   resources :enrollments do
     get :my_students, on: :collection
@@ -29,6 +30,9 @@ Rails.application.routes.draw do
     end
     resources :enrollments, only: [:new, :create]
   end
+  
+  resources :youtube, only: :show
+  
   resources :users, only: [:index, :edit, :show, :update]
 
   namespace :charts do
