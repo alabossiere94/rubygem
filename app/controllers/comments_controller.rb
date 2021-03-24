@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully created.' }
+        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render 'lessons/comments/new' }
@@ -23,6 +23,17 @@ class CommentsController < ApplicationController
       end
     end
 
+  end
+  
+  def destroy
+    @course = Course.friendly.find(params[:course_id])
+    @lesson = Lesson.friendly.find(params[:lesson_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Comment was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
