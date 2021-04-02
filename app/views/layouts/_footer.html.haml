@@ -3,20 +3,28 @@
   .container
     .row
       .col-md-4
+        = link_to 'Teach on Rubygem', new_course_path
+        .row
+        Rubygem for business
+        .row
+        About Us
+      .col-md-4  
+        Privacy Policy
+        .row
+        Terms and Conditions
+        .row
+        Careers
+        .row
+        Help and Support
+        .row
+        Blog
+      .col-md-4  
         Copyright
         ©
         = Time.now.year
-        CoursePlatform Sp. z o.o.
+        Rubygem Sp. z o.o.
         .row
         .fa.fa-envelope
         = mail_to 'alabossi@gmail.com'
         .row
-      .col-md-4
-        Privacy Policy
-        .row
-        Terms and Conditions
-      .col-md-4
-        About Us
-        .row
-        = link_to 'Teach on Rubygem', new_course_path
-  %br
+%br
