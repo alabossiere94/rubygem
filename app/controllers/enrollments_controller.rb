@@ -45,7 +45,7 @@ class EnrollmentsController < ApplicationController
       redirect_to course_path(@course), notice: "You are enrolled!"
     end
   end
-
+  
   # PATCH/PUT /enrollments/1 or /enrollments/1.json
   def update
     authorize @enrollment
