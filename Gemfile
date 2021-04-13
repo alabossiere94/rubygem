@@ -37,7 +37,9 @@ gem "haml-rails", "~> 2.0"
 gem 'font-awesome-sass', '~> 5.15.1' #add icons for styling
 gem 'simple_form'
 gem 'faker' #fake data for seeds.rb
-gem 'devise' #authentication as a User
+#gem 'devise' #authentication as a User
+# error when using the above devise code and omniauth, changed per https://github.com/heartcombo/devise/commit/1d138dd40cdc291a427b89027d16a869818a5c19
+gem "devise", github: "heartcombo/devise", branch: "master"
 gem 'friendly_id' 
 gem 'ransack' #filter and sort data
 gem 'public_activity' #see all activity in the app
@@ -53,3 +55,6 @@ gem "aws-sdk-s3", require: false #save images and files in production
 gem 'active_storage_validations' #validate image and file uploads
 gem 'image_processing' #sudo apt install imagemagick
 gem 'recaptcha'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection" #adding to solve "Could not authenticate you from GoogleOauth2 because "Authenticity error"" error
+#gem "omniauth", "~> 1.9.1" # adding to help futher solve "Not found. Authentication passthru." per https://github.com/heartcombo/devise/pull/5327
