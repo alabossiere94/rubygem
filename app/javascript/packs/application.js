@@ -30,6 +30,7 @@ import "../trix-editor-overrides"
 
 require("jquery") // yarn add jquery
 require("jquery-ui-dist/jquery-ui"); // yarn add jquery-ui-dist 
+require("selectize")
 
 import "youtube"
 
@@ -58,5 +59,11 @@ $(document).on('turbolinks:load', function(){
   $("video").bind("contextmenu",function(){
       return false;
   });
+  
+  if ($('.selectize')){
+      $('.selectize').selectize({
+          sortField: 'text'
+      });
+  }
   
 });

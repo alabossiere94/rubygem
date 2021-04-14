@@ -19,7 +19,7 @@ class CoursesController < ApplicationController
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
   end
   
-  def purchased
+  def purchased #learning in teachers program
     @ransack_path = purchased_courses_path
     @ransack_courses = Course.joins(:enrollments).where(enrollments: {user: current_user}).ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
@@ -33,7 +33,7 @@ class CoursesController < ApplicationController
     render 'index'
   end
   
-  def created
+  def created #teaching in teachers program
     @ransack_path = created_courses_path
     @ransack_courses = Course.where(user: current_user).ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
@@ -117,7 +117,7 @@ class CoursesController < ApplicationController
     authorize @course
     if @course.destroy
       respond_to do |format|
-        format.html { redirect_to teaching_courses_path, notice: "Course was successfully destroyed." }
+        format.html { redirect_to created_courses_path, notice: "Course was successfully destroyed." }
         format.json { head :no_content }
       end
     else
@@ -134,6 +134,6 @@ class CoursesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def course_params
       params.require(:course).permit(:title, :description, :short_description, :price, 
-        :published, :language, :level, :avatar)
+        :published, :language, :level, :avatar, tag_ids: [])
     end
 end
