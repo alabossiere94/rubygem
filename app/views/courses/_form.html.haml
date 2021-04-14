@@ -7,7 +7,8 @@
     //= f.input :title
     = f.input :title, input_html: { autocomplete: 'off' }
     //= f.input :tag_ids
-    = f.select :tag_ids, @tags.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" }
+    //= f.select :tag_ids, @tags.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" }
+    = f.select :tag_ids, @tags.all.pluck(:name, :id), {}, { multiple: true, class: "selectize-tags" }
     /= f.label :avatar
     .row
     - if @course.avatar.attached?
