@@ -6,10 +6,10 @@
 = render 'users/user', user: @user
 
 %br
-= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'nav-link' do
-  .fab.fa-google
-  Sign in with Google
-%br
+//= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'nav-link' do
+//  .fab.fa-google
+//  Sign in with Google
+//%br
 
 //= @user.provider
 //.row
@@ -22,8 +22,8 @@
 //= @user.expires
 //.row
 //= @user.refresh_token
-- if @user.uid.present?
-  .row
-  = image_tag @user.image, size: '40x40', alt: "#{@user.email}", class: 'rounded-circle'
-  .row
-  = @user.name
+//- if @user.uid.present?
+//  .row
+//  = image_tag @user.image, size: '40x40', alt: "#{@user.email}", class: 'rounded-circle'
+//  .row
+//  = @user.name
