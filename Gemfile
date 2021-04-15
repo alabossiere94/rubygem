@@ -61,3 +61,5 @@ gem "omniauth-rails_csrf_protection" #adding to solve "Could not authenticate yo
 #gem "omniauth", "~> 1.9.1" # adding to help futher solve "Not found. Authentication passthru." per https://github.com/heartcombo/devise/pull/5327
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-facebook'
+gem 'wicked_pdf' #PDF for Ruby on Rails
+gem 'wkhtmltopdf-binary' #PDF dependancy
