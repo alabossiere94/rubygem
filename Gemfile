@@ -62,4 +62,5 @@ gem "omniauth-rails_csrf_protection" #adding to solve "Could not authenticate yo
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-facebook'
 gem 'wicked_pdf' #PDF for Ruby on Rails
-gem 'wkhtmltopdf-binary' #PDF dependancy
+gem 'wkhtmltopdf-binary', group: :development
+gem 'wkhtmltopdf-heroku', group: :production
