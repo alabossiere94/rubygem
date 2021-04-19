@@ -1,0 +1,37 @@
+%center
+  %h1 
+    Certificate of Completion
+
+%p
+%center
+  This is to certify that the owner of the email address
+  %b
+    = @enrollment.user.email
+  has successfully completed the course
+  %b
+    = @enrollment.course.title
+  on the 
+  .row
+  rubyonrailscourse2021.herokuapp.com 
+  %b OR
+  .row
+  35bb9f79c4d4450eab5d093b96755ec5.vfs.cloud9.us-east-2.amazonaws.com platform
+
+%p
+
+%b Certificate id: 
+#{@enrollment.slug}
+
+%p
+
+%b Certificate url: 
+#{request.base_url}#{request.original_fullpath}
+
+%center
+  %h3
+    = image_tag wicked_pdf_asset_base64('logo.png'), height: "50", width: "auto"
+    %p
+    https://rubyonrailscourse2021.herokuapp.com
+    .row
+    https://35bb9f79c4d4450eab5d093b96755ec5.vfs.cloud9.us-east-2.amazonaws.com
+    
