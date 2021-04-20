@@ -64,3 +64,4 @@ gem 'omniauth-facebook'
 gem 'wicked_pdf' #PDF for Ruby on Rails
 gem 'wkhtmltopdf-binary', group: :development
 gem 'wkhtmltopdf-heroku', group: :production
+gem 'wicked' #multistep forms
