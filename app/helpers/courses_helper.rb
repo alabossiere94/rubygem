@@ -2,7 +2,14 @@ module CoursesHelper
   def enrollment_button(course)
     if current_user
       if course.user == current_user
-        link_to "You created this course.", course_path(course)
+        link_to course_path(course) do
+          "You created this course and the cost is: " +
+          if course.price > 0
+            number_to_currency(course.price)
+          else
+            "Free"
+          end
+        end
       elsif course.enrollments.where(user: current_user).any?
         link_to course_path(course) do
           #"Congrats! You are enrolled in this course!"
