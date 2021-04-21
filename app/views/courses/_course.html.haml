@@ -4,9 +4,10 @@
     = link_to course.title, course_path(course)
   - if course.avatar.attached?
     .card-img-top
-      = image_tag course.avatar, height: "200px", width: "100%"
+      = link_to course_path(course) do
+        = image_tag course.avatar, height: "auto", width: "100%"
       /= image_tag course.avatar.variant(resize_to_limit: [100, 100])
-  .card-body
+  .card-footer
     %small= simple_format(course.short_description)
   .card-footer
     .text-center
@@ -32,6 +33,7 @@
       .col-md-6
         .text-right
           .fa.fa-chalkboard-teacher
+          by 
           = link_to course.user.username, user_path(course.user)  
   /.card-footer
   /  .row
@@ -61,11 +63,6 @@
         = link_to analytics_course_path(course), class: 'btn btn-sm btn-info' do
           .fa.fa-chart-bar
           Analtycs
-        //- if policy(course).destroy?
-        //  = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
-        - if policy(course).destroy?
-          = link_to course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
-            .fa.fa-trash
     - if policy(course).admin_or_owner?
       .card-footer
         - if course.published?
@@ -77,14 +74,17 @@
         - else
           .badge.badge-danger unapproved
         - if policy(course).approve?
-          .card-footer
-            - if course.approved?
-              = link_to 'unapprove', unapprove_course_path(course), method: :patch, class: 'btn btn-sm btn-danger'
-            - else
-              = link_to 'approve', approve_course_path(course), method: :patch, class: 'btn btn-sm btn-success'
-  .card-footer
-    - if course.tags.any?
-      .card-footer
-        - course.tags.each do |tag|
-          .badge.badge-info
-            = tag.name 
+          - if course.approved?
+            = link_to 'unapprove', unapprove_course_path(course), method: :patch, class: 'btn btn-sm btn-danger'
+          - else
+            = link_to 'approve', approve_course_path(course), method: :patch, class: 'btn btn-sm btn-success'
+        //- if policy(course).destroy?
+        //  = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+        - if policy(course).destroy?
+          = link_to course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
+            .fa.fa-trash
+  - if course.tags.any?
+    .card-footer
+      - course.tags.each do |tag|
+        .badge.badge-info
+          = tag.name 
